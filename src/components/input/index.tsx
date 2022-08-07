@@ -22,7 +22,11 @@ const Input = ({icon, label, iconPress, ...rest}: IInputProps): JSX.Element => {
       <View style={styles.containerInput}>
         <View style={styles.containerLabelText}>
           <Text style={styles.label}>{label}</Text>
-          <TextInput style={styles.input} {...rest} />
+          <TextInput
+            style={styles.input}
+            placeholderTextColor="#777"
+            {...rest}
+          />
         </View>
 
         {icon && (
