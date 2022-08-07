@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "699453769696",
+    "project_id": "waterreminder-e31b2",
+    "storage_bucket": "waterreminder-e31b2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:699453769696:android:7cd5e868b0d5e798ffcd85",
+        "android_client_info": {
+          "package_name": "com.waterreminder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "699453769696-1retpt0unbu7kketvgjme0dkdqncvo6f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALsnvbD4TeT6f-fdjzQPfXb-t-FUwa4DI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "699453769696-1retpt0unbu7kketvgjme0dkdqncvo6f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
