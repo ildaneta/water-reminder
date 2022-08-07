@@ -45,13 +45,15 @@ export const styles = StyleSheet.create({
     marginRight: 5,
     marginLeft: 16,
     color: '#666',
-    fontWeight: '700',
+    fontFamily: 'Baloo2-SemiBold',
+    fontSize: 16,
   },
 
   input: {
     width: '70%',
     marginRight: 100,
     color: '#333',
-    fontWeight: '600',
+    fontFamily: 'Baloo2-Medium',
+    fontSize: 16,
   },
 });
