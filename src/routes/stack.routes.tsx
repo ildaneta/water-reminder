@@ -17,35 +17,14 @@ const {Navigator, Screen} = createNativeStackNavigator<StackRoutes>();
 
 const routes = (): JSX.Element => {
   return (
-    <Navigator>
-      <Screen
-        name="SignIn"
-        component={SignIn}
-        options={{
-          headerShown: false,
-        }}
-      />
-      <Screen
-        name="SignUp"
-        component={SignUp}
-        options={{
-          headerShown: false,
-        }}
-      />
-      <Screen
-        name="RecoveryPassword"
-        component={RecoveryPassword}
-        options={{
-          headerShown: false,
-        }}
-      />
-      <Screen
-        name="Home"
-        component={Home}
-        options={{
-          headerShown: false,
-        }}
-      />
+    <Navigator
+      screenOptions={{
+        headerShown: false,
+      }}>
+      <Screen name="SignIn" component={SignIn} />
+      <Screen name="SignUp" component={SignUp} />
+      <Screen name="RecoveryPassword" component={RecoveryPassword} />
+      <Screen name="Home" component={Home} />
     </Navigator>
   );
 };
