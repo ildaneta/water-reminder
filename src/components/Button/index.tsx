@@ -11,13 +11,13 @@ import {styles} from './styles';
 
 interface IButtonProps extends TouchableOpacityProps {
   label: string;
-  type: 'rectangular' | 'link';
+  type?: 'rectangular' | 'link';
   color?: 'green' | 'black';
 }
 
 const Button = ({
   label,
-  type,
+  type = 'rectangular',
   color = 'black',
   ...rest
 }: IButtonProps): JSX.Element => {
