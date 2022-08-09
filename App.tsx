@@ -5,9 +5,9 @@ import Routes from './src/routes';
 const App = () => {
   return (
     <>
-      <StatusBar backgroundColor="#fdfdfd" barStyle="dark-content" />
+      <StatusBar backgroundColor="#f4f4f4" barStyle="dark-content" />
       {/* eslint-disable-next-line react-native/no-inline-styles */}
-      <SafeAreaView style={{backgroundColor: '#fdfdfd', flex: 1}}>
+      <SafeAreaView style={{backgroundColor: '#f4f4f4', flex: 1}}>
         <Routes />
       </SafeAreaView>
     </>
