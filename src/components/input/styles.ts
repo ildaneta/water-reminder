@@ -41,7 +41,7 @@ export const styles = StyleSheet.create({
   },
 
   label: {
-    width: '22%',
+    width: '25%',
     marginRight: 5,
     marginLeft: 16,
     color: '#666',
