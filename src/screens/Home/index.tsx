@@ -8,7 +8,7 @@ import WelcomeSVG from '../../assets/welcome-illustration.svg';
 import {useAuth} from '../../hooks/auth';
 
 const Home = (): JSX.Element => {
-  const {signOut, isLoading} = useAuth();
+  const {signOut, isLoading, user} = useAuth();
   return (
     <>
       {isLoading ? (
@@ -19,7 +19,7 @@ const Home = (): JSX.Element => {
         <View style={styles.container}>
           <View style={styles.containerGreetingSignOut}>
             <Text style={styles.greeting}>
-              Welcome, <Text style={styles.userName}>Ilda</Text>
+              Welcome, <Text style={styles.userName}>{user?.username}</Text>
             </Text>
 
             <View>
