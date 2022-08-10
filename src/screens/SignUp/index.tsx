@@ -4,7 +4,8 @@ import {ScrollView, TouchableOpacity, View} from 'react-native';
 import {StackRoutes} from '../../routes/stack.routes';
 
 import HeaderSVG from '../../assets/header.svg';
-import OpenedEyeSVG from '../../assets/open-eye.svg';
+import OpenedEyeSVG from '../../assets/opened-eye.svg';
+import ClosedEyeSVG from '../../assets/closed-eye.svg';
 import ArrowBackSVG from '../../assets/arrow-back.svg';
 
 import {styles} from './styles';
@@ -28,6 +29,7 @@ const SignUp = ({navigation}: Props): JSX.Element => {
   const [email, setEmail] = useState<string>('');
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [securePassword, setSecurePassword] = useState<boolean>(true);
 
   const handleSignUp = () => {
     signUp({username, email, password});
@@ -76,7 +78,9 @@ const SignUp = ({navigation}: Props): JSX.Element => {
         <Input
           label="Password"
           placeholder="Password"
-          icon={<OpenedEyeSVG />}
+          icon={securePassword ? <ClosedEyeSVG /> : <OpenedEyeSVG />}
+          iconPress={() => setSecurePassword(!securePassword)}
+          secureTextEntry={securePassword}
           autoCorrect={false}
           autoCapitalize="none"
           onChangeText={setPassword}
