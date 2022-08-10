@@ -143,8 +143,6 @@ const AuthProvider = ({children}: AuthProviderProps): JSX.Element => {
           });
       })
       .catch(error => {
-        console.log('Erro: ', error);
-
         const {code} = error;
 
         if (code === 'auth/wrong-password') {
@@ -212,7 +210,6 @@ const AuthProvider = ({children}: AuthProviderProps): JSX.Element => {
 
     if (storedUser) {
       const userData = JSON.parse(storedUser) as IUser;
-      console.log('Existe user?', userData.id);
       navigation.navigate('Home');
 
       setUser(userData);
