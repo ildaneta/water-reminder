@@ -66,7 +66,7 @@ const AuthProvider = ({children}: AuthProviderProps): JSX.Element => {
     if (password.length < 6) {
       return Alert.alert(
         'SignUp',
-        'A senha nao pode ser menor que 6 caracteres',
+        'Password cannot be less than 6 characters.',
       );
     }
 
