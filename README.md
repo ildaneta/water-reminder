@@ -32,6 +32,8 @@ cd water-reminder
 
 yarn install
 
+cd ios && pod install
+
 yarn ios
 yarn android
 ```
