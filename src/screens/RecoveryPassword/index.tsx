@@ -1,6 +1,6 @@
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import React from 'react';
-import {TouchableOpacity, View} from 'react-native';
+import React, {useState} from 'react';
+import {ScrollView, TouchableOpacity, View} from 'react-native';
 import {StackRoutes} from '../../routes/stack.routes';
 
 import HeaderSVG from '../../assets/header.svg';
@@ -11,6 +11,7 @@ import Text from '../../components/Text';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 import Spacer from '../../components/Spacer';
+import {useAuth} from '../../hooks/auth';
 
 type SignScreenNavigationProp = NativeStackNavigationProp<
   StackRoutes,
@@ -22,8 +23,16 @@ type Props = {
 };
 
 const RecoveryPassword = ({navigation}: Props): JSX.Element => {
+  const [email, setEmail] = useState<string>('');
+
+  const {isLoading, recoveryPassword} = useAuth();
+
+  const handleRecoveryPassword = () => {
+    recoveryPassword({email});
+  };
+
   return (
-    <>
+    <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
       <View style={styles.containerButtonLinkPassword}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <ArrowBackSVG />
@@ -42,13 +51,23 @@ const RecoveryPassword = ({navigation}: Props): JSX.Element => {
 
         <Spacer top={48} />
 
-        <Input label="E-mail" placeholder="Enter your e-mail" />
+        <Input
+          label="E-mail"
+          placeholder="Enter your e-mail"
+          autoCapitalize="none"
+          autoCorrect={false}
+          onChangeText={setEmail}
+        />
 
         <Spacer top={30} />
 
-        <Button label="Send " />
+        <Button
+          label="Send"
+          isLoading={isLoading}
+          onPress={handleRecoveryPassword}
+        />
       </View>
-    </>
+    </ScrollView>
   );
 };
 
