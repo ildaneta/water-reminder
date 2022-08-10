@@ -143,8 +143,6 @@ const AuthProvider = ({children}: AuthProviderProps): JSX.Element => {
           });
       })
       .catch(error => {
-        console.log('Erro: ', error);
-
         const {code} = error;
 
         if (code === 'auth/wrong-password') {
