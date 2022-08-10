@@ -1,5 +1,5 @@
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import React from 'react';
+import React, {useState} from 'react';
 import {ScrollView, TouchableOpacity, View} from 'react-native';
 import {StackRoutes} from '../../routes/stack.routes';
 
@@ -11,6 +11,7 @@ import Text from '../../components/Text';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 import Spacer from '../../components/Spacer';
+import {useAuth} from '../../hooks/auth';
 
 type SignScreenNavigationProp = NativeStackNavigationProp<
   StackRoutes,
@@ -22,6 +23,15 @@ type Props = {
 };
 
 const SignIn = ({navigation: {navigate}}: Props): JSX.Element => {
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+
+  const {signIn, isLoading} = useAuth();
+
+  const handleSignIn = () => {
+    signIn({email, password});
+  };
+
   return (
     <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
       <View>
@@ -37,7 +47,13 @@ const SignIn = ({navigation: {navigate}}: Props): JSX.Element => {
 
         <Spacer top={48} />
 
-        <Input label="E-mail" placeholder="Enter your e-mail" />
+        <Input
+          label="E-mail"
+          placeholder="Enter your e-mail"
+          autoCorrect={false}
+          autoCapitalize="none"
+          onChangeText={setEmail}
+        />
 
         <Spacer top={30} />
 
@@ -45,7 +61,9 @@ const SignIn = ({navigation: {navigate}}: Props): JSX.Element => {
           label="Password"
           placeholder="Enter your password"
           icon={<OpenedEyeSVG />}
+          autoCorrect={false}
           autoCapitalize="none"
+          onChangeText={setPassword}
         />
 
         <TouchableOpacity
@@ -60,7 +78,7 @@ const SignIn = ({navigation: {navigate}}: Props): JSX.Element => {
 
         <Spacer top={60} />
 
-        <Button label="Login" />
+        <Button label="Login" isLoading={isLoading} onPress={handleSignIn} />
 
         <View style={styles.containerButtonRegister}>
           <Text label="Don't have an account?" style={styles.titleRegister} />
