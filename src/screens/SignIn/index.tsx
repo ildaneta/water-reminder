@@ -1,16 +1,19 @@
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import React from 'react';
+import React, {useCallback, useState} from 'react';
 import {ScrollView, TouchableOpacity, View} from 'react-native';
 import {StackRoutes} from '../../routes/stack.routes';
 
 import HeaderSVG from '../../assets/header.svg';
-import OpenedEyeSVG from '../../assets/open-eye.svg';
+import OpenedEyeSVG from '../../assets/opened-eye.svg';
+import ClosedEyeSVG from '../../assets/closed-eye.svg';
 
 import {styles} from './styles';
 import Text from '../../components/Text';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 import Spacer from '../../components/Spacer';
+import {useAuth} from '../../hooks/auth';
+import {useFocusEffect} from '@react-navigation/native';
 
 type SignScreenNavigationProp = NativeStackNavigationProp<
   StackRoutes,
@@ -22,6 +25,23 @@ type Props = {
 };
 
 const SignIn = ({navigation: {navigate}}: Props): JSX.Element => {
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [securePassword, setSecurePassword] = useState<boolean>(true);
+
+  const {signIn, isLoading} = useAuth();
+
+  const handleSignIn = () => {
+    signIn({email, password});
+  };
+
+  useFocusEffect(
+    useCallback(() => {
+      setEmail('');
+      setPassword('');
+    }, []),
+  );
+
   return (
     <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
       <View>
@@ -37,15 +57,27 @@ const SignIn = ({navigation: {navigate}}: Props): JSX.Element => {
 
         <Spacer top={48} />
 
-        <Input label="E-mail" placeholder="Enter your e-mail" />
+        <Input
+          label="E-mail"
+          value={email}
+          placeholder="Enter your e-mail"
+          autoCorrect={false}
+          autoCapitalize="none"
+          onChangeText={setEmail}
+        />
 
         <Spacer top={30} />
 
         <Input
           label="Password"
           placeholder="Enter your password"
-          icon={<OpenedEyeSVG />}
+          icon={securePassword ? <ClosedEyeSVG /> : <OpenedEyeSVG />}
+          value={password}
+          iconPress={() => setSecurePassword(!securePassword)}
+          secureTextEntry={securePassword}
+          autoCorrect={false}
           autoCapitalize="none"
+          onChangeText={setPassword}
         />
 
         <TouchableOpacity
@@ -60,7 +92,7 @@ const SignIn = ({navigation: {navigate}}: Props): JSX.Element => {
 
         <Spacer top={60} />
 
-        <Button label="Login" />
+        <Button label="Login" isLoading={isLoading} onPress={handleSignIn} />
 
         <View style={styles.containerButtonRegister}>
           <Text label="Don't have an account?" style={styles.titleRegister} />
