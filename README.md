@@ -21,7 +21,7 @@ This app was built to teach through the article: how to install, configure and u
 ## :camera: Final images
 
 ![Water reminder app](https://user-images.githubusercontent.com/21963291/183879279-ec0d202a-8a8a-4b9c-9a8a-f90171ec955f.png)
-<img width="797" alt="Water reminder app Android and iOS" src="https://user-images.githubusercontent.com/21963291/183880890-a7b8dec2-fb80-499a-8c8c-6c942356d021.png">
+<img width="400" alt="Water reminder app Android and iOS" src="https://user-images.githubusercontent.com/21963291/183880890-a7b8dec2-fb80-499a-8c8c-6c942356d021.png">
 
 ## :computer: How to run the app
 
