@@ -210,7 +210,6 @@ const AuthProvider = ({children}: AuthProviderProps): JSX.Element => {
 
     if (storedUser) {
       const userData = JSON.parse(storedUser) as IUser;
-      console.log('Existe user?', userData.id);
       navigation.navigate('Home');
 
       setUser(userData);
