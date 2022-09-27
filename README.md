@@ -10,7 +10,7 @@
 
 ## :pushpin: Motivation
 
-This app was built to teach through the article: how to install, configure and utilize Firebase with Auth and Firestore. The app include the following functionalities:
+This app was built to teach through the article: [how to install, configure and utilize Firebase with Auth and Firestore.](https://ildaneta.dev/posts/como-instalar-configurar-e-utilizar-o-firebase-em-aplica%C3%A7%C3%B5es-react-native) The app include the following functionalities:
 
 1. SignUp screen with creation of new user 
 2. SignIn screen with user login 
